@@ -8,7 +8,6 @@ URL:		http://www.memtest.org
 Group:		System/Kernel and hardware
 BuildRequires:	dev86
 Requires:	initscripts, drakxtools-backend >= 10-53mdk
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 ExclusiveArch:	%{ix86} x86_64
 Obsoletes:	memtest86
 Provides:	memtest86
