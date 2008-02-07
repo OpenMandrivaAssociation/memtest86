@@ -1,7 +1,7 @@
 Summary:	A stand alone memory test for i386 architecture systems
 Name:		memtest86+
-Version:	1.70
-Release:	%mkrel 3
+Version:	2.00	
+Release:	%mkrel 1
 License:	GPL
 Source0:	http://www.memtest.org/download/%{version}/%{name}-%{version}.tar.bz2
 URL:		http://www.memtest.org
@@ -43,7 +43,7 @@ fi
 
 %files
 %defattr(-,root,root)
-%doc README
+%doc FAQ
 /boot/memtest-%{version}.bin
 
 
