@@ -4,6 +4,7 @@ Version:	2.00
 Release:	%mkrel 1
 License:	GPL
 Source0:	http://www.memtest.org/download/%{version}/%{name}-%{version}.tar.bz2
+Patch0:		memtest86+-64bit.patch
 URL:		http://www.memtest.org
 Group:		System/Kernel and hardware
 BuildRequires:	dev86
@@ -20,6 +21,7 @@ missfailures that are detected by Memtest86.
 
 %prep
 %setup -q 
+%patch0 -p0
 
 %build
 %make
