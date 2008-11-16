@@ -1,17 +1,18 @@
 Summary:	A stand alone memory test for i386 architecture systems
 Name:		memtest86+
-Version:	2.01	
-Release:	%mkrel 4 
+Version:	2.10	
+Release:	%mkrel 1
 License:	GPL
 Source0:	http://www.memtest.org/download/%{version}/%{name}-%{version}.tar.bz2
 URL:		http://www.memtest.org
 Group:		System/Kernel and hardware
-BuildRequires:	dev86
+BuildRequires:	dev86, gcc3.3
 Requires:	initscripts, drakxtools-backend >= 10-53mdk
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 ExclusiveArch:	%{ix86} x86_64
 Obsoletes:	memtest86
 Provides:	memtest86
+Patch0:		memtest86+-gcc3.patch
 
 %description
 Memtest86 is thorough, stand alone memory test for i386 architecture
@@ -21,7 +22,8 @@ missfailures that are detected by Memtest86.
 %prep
 %setup -q 
 #Temporary workaround as gcc 4.3.1 generates some troubles at memtest runtime
-perl -pi -e "s|\-Os|-O1|g" Makefile
+#perl -pi -e "s|\-Os|-O1|g" Makefile
+%patch0 -p0
 
 %build
 %make
