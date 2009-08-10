@@ -6,6 +6,9 @@ License:	GPL
 Source0:	http://www.memtest.org/download/%{version}/%{name}-%{version}.tar.bz2
 URL:		http://www.memtest.org
 Group:		System/Kernel and hardware
+# Note! We need to build with gcc3.3 as gcc-4.* breaks the memtest patterns.
+# It will build without errors, but when used, it will report faulty memory,
+# even if it actually is ok! / tmb 10.8.2009
 BuildRequires:	dev86 gcc3.3
 Requires:	initscripts, drakxtools-backend >= 10-53mdk
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -21,8 +24,6 @@ missfailures that are detected by Memtest86.
 
 %prep
 %setup -q 
-#Temporary workaround as gcc 4.3.1 generates some troubles at memtest runtime
-#perl -pi -e "s|\-Os|-O1|g" Makefile
 %patch0 -p1
 
 %build
