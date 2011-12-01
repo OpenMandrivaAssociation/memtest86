@@ -25,11 +25,11 @@ missfailures that are detected by Memtest86.
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
-install -m644 memtest.bin -D $RPM_BUILD_ROOT/boot/memtest.bin
+rm -rf %{buildroot}
+install -m644 memtest.bin -D %{buildroot}/boot/memtest.bin
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %post
 if [ -x /usr/sbin/bootloader-config ]; then
