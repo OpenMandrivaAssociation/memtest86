@@ -1,9 +1,9 @@
 Summary:	A stand alone memory test for i386 architecture systems
 Name:		memtest86+
-Version:	4.10
-Release:	%mkrel 3
+Version:	4.20
+Release:	%mkrel 1
 License:	GPL
-Source0:	http://www.memtest.org/download/%{version}/%{name}-%{version}.tar.bz2
+Source0:	http://www.memtest.org/download/%{version}/%{name}-%{version}.tar.gz
 URL:		http://www.memtest.org
 Group:		System/Kernel and hardware
 BuildRequires:	dev86
