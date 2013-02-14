@@ -8,18 +8,19 @@ Version:	4.20
 Release:	2
 License:	GPL
 Source0:	http://www.memtest.org/download/%{version}/%{name}-%{version}.tar.gz
+Source1:	%{name}.rpmlintrc
 URL:		http://www.memtest.org
 Group:		System/Kernel and hardware
 BuildRequires:	dev86
 Requires:	initscripts, drakxtools-backend
 
 ExclusiveArch:	%{ix86} x86_64
-%rename	memtest86
+%rename		memtest86
 
 %description
 Memtest86 is thorough, stand alone memory test for i386 architecture
-systems.  BIOS based memory tests are only a quick check and often
-missfailures that are detected by Memtest86.    
+systems. BIOS based memory tests are only a quick check and often
+missfailures that are detected by Memtest86.
 
 %prep
 %setup -q 
@@ -44,10 +45,9 @@ fi
 %doc FAQ
 /boot/memtest.bin
 
-
-
-
 %changelog
+* Thu Feb 14 2013 Per Øyvind Karlsen <peroyvind@mandriva.org> 4.20-2
+- filter out statically-linked-binary rpmlint error
 * Thu Dec 22 2011 Andrey Bondrov <abondrov@mandriva.org> 4.20-1
 + Revision: 744467
 - New version 4.20
