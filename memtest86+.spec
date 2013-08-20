@@ -5,7 +5,7 @@
 Summary:	A stand alone memory test for i386 architecture systems
 Name:		memtest86+
 Version:	4.20
-Release:	2
+Release:	3
 License:	GPLv2
 Group:		System/Kernel and hardware
 Url:		http://www.memtest.org
@@ -14,6 +14,7 @@ Source1:	%{name}.rpmlintrc
 BuildRequires:	dev86
 Requires:	initscripts
 Requires:	drakxtools-backend
+Requires(post,preun):	drakxtools-backend
 
 ExclusiveArch:	%{ix86} x86_64
 %rename		memtest86
