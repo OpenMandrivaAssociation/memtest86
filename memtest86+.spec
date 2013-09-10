@@ -5,7 +5,7 @@
 Summary:	A stand alone memory test for i386 architecture systems
 Name:		memtest86+
 Version:	4.20
-Release:	3
+Release:	4
 License:	GPLv2
 Group:		System/Kernel and hardware
 Url:		http://www.memtest.org
@@ -35,7 +35,9 @@ install -m644 memtest.bin -D %{buildroot}/boot/memtest.bin
 
 %post
 if [ -x /usr/sbin/bootloader-config ]; then
+	if [ "x$DURING_INSTALL" = "x" ]; then
     /usr/sbin/bootloader-config --action add-entry --label memtest --image /boot/memtest.bin
+    fi
 fi
 
 %preun
