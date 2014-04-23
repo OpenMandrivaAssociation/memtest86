@@ -4,13 +4,17 @@
 
 Summary:	A stand alone memory test for i386 architecture systems
 Name:		memtest86+
-Version:	4.20
-Release:	5
+Version:	5.01
+Release:	1
 License:	GPLv2
 Group:		System/Kernel and hardware
 Url:		http://www.memtest.org
 Source0:	http://www.memtest.org/download/%{version}/%{name}-%{version}.tar.gz
 Source1:	%{name}.rpmlintrc
+Patch1:		memtest86+-5.01-makefile_clean.patch
+Patch2:		memtest86+-5.01-O0.patch
+Patch3:		memtest86+-5.01-io.patch
+Patch4:		memtest86+-5.01-array-size-fix.patch
 BuildRequires:	dev86
 Requires:	initscripts
 Requires:	drakxtools-backend
@@ -26,9 +30,10 @@ missfailures that are detected by Memtest86.
 
 %prep
 %setup -q 
+%apply_patches
 
 %build
-%make
+make
 
 %install
 install -m644 memtest.bin -D %{buildroot}/boot/memtest.bin
