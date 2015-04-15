@@ -34,12 +34,15 @@ make LD=/usr/bin/ld.bfd
 
 %install
 # the ELF (memtest) version.
-install -m644 memtest %{buildroot}/boot/elf-%{name}
+install -m644 memtest -D %{buildroot}/boot/elf-%{name}
 
 # the floppy (memtest.bin) version.
-install -m644 memtest.bin %{buildroot}/boot/memtest.bin
+install -m644 memtest.bin -D %{buildroot}/boot/memtest.bin
+
+install -p -m755 %{SOURCE2} -D %{buildroot}%{_sysconfdir}/grub.d/20_memtest86+
 
 %files
 %doc FAQ
 /boot/elf-%{name}
 /boot/memtest.bin
+%{_sysconfdir}/grub.d/20_memtest86+
