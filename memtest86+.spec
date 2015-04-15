@@ -11,6 +11,7 @@ Group:		System/Kernel and hardware
 Url:		http://www.memtest.org
 Source0:	http://www.memtest.org/download/%{version}/%{name}-%{version}.tar.gz
 Source1:	%{name}.rpmlintrc
+Source2:	20_memtest86+
 Patch1:		memtest86+-5.01-makefile_clean.patch
 Patch2:		memtest86+-5.01-O0.patch
 Patch3:		memtest86+-5.01-io.patch
@@ -32,10 +33,13 @@ missfailures that are detected by Memtest86.
 make LD=/usr/bin/ld.bfd
 
 %install
-install -m644 memtest.bin -D %{buildroot}/boot/memtest.bin
+# the ELF (memtest) version.
+install -m644 memtest %{buildroot}/boot/elf-%{name}
+
+# the floppy (memtest.bin) version.
+install -m644 memtest.bin %{buildroot}/boot/memtest.bin
 
 %files
 %doc FAQ
+/boot/elf-%{name}
 /boot/memtest.bin
-
-
