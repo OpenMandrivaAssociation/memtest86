@@ -30,7 +30,7 @@ missfailures that are detected by Memtest86.
 %apply_patches
 
 %build
-make LD=/usr/bin/ld.bfd
+%make LD=/usr/bin/ld.bfd
 
 %install
 # the ELF (memtest) version.
