@@ -16,10 +16,6 @@ Patch2:		memtest86+-5.01-O0.patch
 Patch3:		memtest86+-5.01-io.patch
 Patch4:		memtest86+-5.01-crash-fix.patch
 BuildRequires:	dev86
-Requires:	initscripts
-Requires:	drakxtools-backend
-Requires(post,preun):	drakxtools-backend
-
 ExclusiveArch:	%{ix86} x86_64
 %rename		memtest86
 
