@@ -30,6 +30,7 @@ missfailures that are detected by Memtest86.
 %apply_patches
 
 %build
+%setup_compile_flags 
 %make LD=/usr/bin/ld.bfd
 
 %install
