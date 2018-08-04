@@ -17,7 +17,7 @@ Patch2:		memtest86+-5.01-O0.patch
 Patch3:		memtest86+-5.01-io.patch
 Patch4:		memtest86+-5.01-crash-fix.patch
 BuildRequires:	dev86
-ExclusiveArch:	%{ix86} x86_64
+ExclusiveArch:	%{ix86} x86_64 znver1
 %rename		memtest86
 
 %description
