@@ -27,7 +27,7 @@ missfailures that are detected by Memtest86.
 
 %prep
 %setup -q 
-%apply_patches
+%autopatch -p1
 
 %build
 %setup_compile_flags 
