@@ -4,18 +4,18 @@
 
 Summary:	A stand alone memory test for i386 architecture systems
 Name:		memtest86+
-Version:	5.01
-Release:	12
+Version:	5.31b
+Release:	1
 License:	GPLv2
 Group:		System/Kernel and hardware
 Url:		http://www.memtest.org
 Source0:	http://www.memtest.org/download/%{version}/%{name}-%{version}.tar.gz
 Source1:	%{name}.rpmlintrc
 Source2:	20_memtest86+
-Patch1:		memtest86+-5.01-makefile_clean.patch
-Patch2:		memtest86+-5.01-O0.patch
-Patch3:		memtest86+-5.01-io.patch
-Patch4:		memtest86+-5.01-crash-fix.patch
+#Patch1:		memtest86+-5.01-makefile_clean.patch
+#Patch2:		memtest86+-5.01-O0.patch
+#Patch3:		memtest86+-5.01-io.patch
+#Patch4:		memtest86+-5.01-crash-fix.patch
 BuildRequires:	dev86
 ExclusiveArch:	%{ix86} x86_64 znver1
 %rename		memtest86
