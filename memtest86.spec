@@ -4,8 +4,8 @@
 
 Summary:	A stand alone memory test for i386 architecture systems
 Name:		memtest86+
-Version:	5.01
-Release:	12
+Version:	5.31b
+Release:	1
 License:	GPLv2
 Group:		System/Kernel and hardware
 Url:		http://www.memtest.org
