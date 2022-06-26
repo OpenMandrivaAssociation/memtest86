@@ -2,48 +2,50 @@
 %define _enable_debug_packages %{nil}
 %define debug_package %{nil}
 
-Summary:	A stand alone memory test for i386 architecture systems
+%define pre beta2
+
+Summary:	A stand alone memory test for x86 architecture systems
 Name:		memtest86+
-Version:	5.31b
-Release:	3
+Version:	6.00
+Release:	1
 License:	GPLv2
 Group:		System/Kernel and hardware
 Url:		http://www.memtest.org
-Source0:	http://www.memtest.org/download/%{version}/%{name}-%{version}.tar.gz
+Source0:	https://github.com/memtest86plus/memtest86plus/archive/refs/tags/v%{version}%{?pre:-%{pre}}.tar.gz
 Source1:	%{name}.rpmlintrc
 Source2:	20_memtest86+
-#Patch1:		memtest86+-5.01-makefile_clean.patch
-#Patch2:		memtest86+-5.01-O0.patch
-#Patch3:		memtest86+-5.01-io.patch
-#Patch4:		memtest86+-5.01-crash-fix.patch
-BuildRequires:	dev86
-ExclusiveArch:	%{ix86} x86_64 znver1
-%rename		memtest86
+BuildRequires:	gcc binutils
+ExclusiveArch:	%{ix86} %{x86_64}
 
 %description
-Memtest86 is thorough, stand alone memory test for i386 architecture
+MemTest86+ is thorough, stand alone memory test for x86 architecture
 systems. BIOS based memory tests are only a quick check and often
-missfailures that are detected by Memtest86.
+missfailures that are detected by PCMemTest.
 
 %prep
-%setup -q 
-%autopatch -p1
+%autosetup -p1 -n memtest86plus-%{version}%{?pre:-%{pre}}
 
 %build
 %setup_compile_flags 
-%make LD=/usr/bin/ld.bfd
+%ifarch %{ix86}
+cd build32
+%else
+cd build64
+%endif
+%make_build LD=/usr/bin/ld.bfd
 
 %install
-# the ELF (memtest) version.
-install -m644 memtest -D %{buildroot}/boot/elf-%{name}
-
-# the floppy (memtest.bin) version.
-install -m644 memtest.bin -D %{buildroot}/boot/memtest.bin
+%ifarch %{ix86}
+cd build32
+%else
+cd build64
+%endif
+mkdir -p %{buildroot}/boot
+install -m644 memtest.{bin,efi} -D %{buildroot}/boot/
 
 install -p -m755 %{SOURCE2} -D %{buildroot}%{_sysconfdir}/grub.d/20_memtest86+
 
 %files
-%doc FAQ
-/boot/elf-%{name}
+/boot/memtest.efi
 /boot/memtest.bin
 %{_sysconfdir}/grub.d/20_memtest86+
