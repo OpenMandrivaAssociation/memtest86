@@ -16,6 +16,7 @@ Source1:	%{name}.rpmlintrc
 Source2:	20_memtest86+
 BuildRequires:	gcc binutils
 ExclusiveArch:	%{ix86} %{x86_64}
+%rename pcmemtest
 
 %description
 MemTest86+ is thorough, stand alone memory test for x86 architecture
