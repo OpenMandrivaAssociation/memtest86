@@ -2,7 +2,7 @@
 %define _enable_debug_packages %{nil}
 %define debug_package %{nil}
 
-%define pre beta2
+#define pre beta2
 
 Summary:	A stand alone memory test for x86 architecture systems
 Name:		memtest86+
