@@ -6,8 +6,8 @@
 
 Summary:	A stand alone memory test for x86 architecture systems
 Name:		memtest86+
-Version:	6.10
-Release:	2
+Version:	6.20
+Release:	1
 License:	GPLv2
 Group:		System/Kernel and hardware
 Url:		http://www.memtest.org
