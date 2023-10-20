@@ -98,7 +98,7 @@ prepare_boot_cache=
 prepare_root_cache=
 
 while [ "x$list" != "x" ] ; do
-  linux=`version_find_latest $list`
+  linux=`echo $list |cut -d' ' -f1`
   echo "Found memtest image: $linux" >&2
   basename=`basename $linux`
   dirname=`dirname $linux`
