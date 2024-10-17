@@ -10,7 +10,7 @@ Version:	7.00
 Release:	1
 License:	GPLv2
 Group:		System/Kernel and hardware
-Url:		http://www.memtest.org
+Url:		https://www.memtest.org
 Source0:	https://github.com/memtest86plus/memtest86plus/archive/refs/tags/v%{version}%{?pre:-%{pre}}.tar.gz
 Source1:	%{name}.rpmlintrc
 Source2:	20_memtest86+
