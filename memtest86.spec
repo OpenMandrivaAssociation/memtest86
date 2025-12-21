@@ -14,6 +14,7 @@ Url:		https://www.memtest.org
 Source0:	https://github.com/memtest86plus/memtest86plus/archive/refs/tags/v%{version}%{?pre:-%{pre}}.tar.gz
 Source1:	%{name}.rpmlintrc
 Source2:	20_memtest86+
+BuildRequires:	make
 BuildRequires:	gcc binutils
 ExclusiveArch:	%{ix86} %{x86_64}
 %rename pcmemtest
